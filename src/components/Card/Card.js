@@ -1,15 +1,19 @@
-import React from 'react';
+import React from 'react'
 
 class Card extends React.Component {
   state = {
-    title: "",
-    text: "",
+    title: this.props.data.title,
+    text: this.props.data.text,
     comments: ""
   };
 
   render() {
+    const { title, text } = this.state;
     return (
-      "zxc"
+      <div className={"card"}>
+        <div className={"card-title"}>{title}</div>
+        <div className={"card-text"}>{text}</div>
+      </div>
     );
   }
 }
