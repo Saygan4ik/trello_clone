@@ -5,7 +5,7 @@ import {
 } from "../actions/BoardActions";
 
 const initialState = {
-  board_id: '',
+  id: '',
   name: '',
   lists: [],
   isFetching: false,
@@ -15,9 +15,9 @@ const initialState = {
 export function boardReducer(state = initialState, action) {
   switch (action.type) {
     case GET_BOARD_REQUEST:
-      return { ...state, board_id: action.payload, isFetching: true, error: '' };
+      return { ...state, isFetching: true };
     case GET_BOARD_SUCCESS:
-      return { ...state, board: action.payload, isFetching: false, error: '' };
+      return { ...state, ...action.payload, isFetching: false, error: '' };
     case GET_BOARD_FAIL:
       return { ...state, error: action.payload.message, isFetching: false };
     default:
